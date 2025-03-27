@@ -57,7 +57,7 @@ Stampa in console ogni titolo nella console.
 const longBooks = books.filter(b => b.pages > 300)
 const longBooksTitles = longBooks.map(b => b.title)
 
-console.log(longBooksTitles)
+longBooksTitles.forEach(t => console.log(t))
 
 /*
 Snack 2 - Il primo libro scontato
@@ -101,18 +101,13 @@ Ordina l’array authors in base all’età, senza creare un nuovo array.
 const authors = books.map(b => b.author);
 
 const areAuthorsAdults = authors.every(a => a.age >= 18);
-
-if (areAuthorsAdults) {
-    authors.sort((a, b) => a.age - b.age);
-} else {
-    authors.sort((a, b) => b.age - a.age);
-}
+authors.sort((a, b) => (a.age - b.age) * (areAuthorsAdults ? 1 : -1))
 
 console.log("Tutti maggiorenni?", areAuthorsAdults);
 console.log("Autori ordinati per età:", authors);
 
 /*
-Snack 3 - Calcola l’età media
+Snack 4 - Calcola l’età media
 Creare un array(ages) che contiene le età degli autori dei libri.
 Calcola la somma delle età(agesSum) usando reduce.
 Stampa in console l’età media degli autori dei libri.
